@@ -14,9 +14,6 @@ class _ChatsScreenState extends State<ChatsScreen> {
         itemBuilder: (context, i) {
           return Column(
             children: [
-              Divider(
-                height: 10.0,
-              ),
               ListTile(
                 leading: CircleAvatar(
                   backgroundColor: Colors.grey,
@@ -40,7 +37,10 @@ class _ChatsScreenState extends State<ChatsScreen> {
                 ),
                 subtitle: Text(dummyList[i].message,
                     style: TextStyle(fontSize: 14, color: Colors.grey)),
-              )
+              ),
+              Divider(
+                height: 2.0,
+              ),
             ],
           );
         });
