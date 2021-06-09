@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsapp_ui_clone/pages/calls_screen.dart';
+import 'package:whatsapp_ui_clone/pages/camera_screen.dart';
+import 'package:whatsapp_ui_clone/pages/chats_screen.dart';
+import 'package:whatsapp_ui_clone/pages/status_screen.dart';
 
 class WhatsAppHome extends StatefulWidget {
   @override
@@ -23,28 +27,50 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          Icon(Icons.search),
+          Padding(padding: const EdgeInsets.symmetric(horizontal: 8)),
+          Icon(Icons.more_vert_outlined)
+        ],
         title: Text("WhatsApp"),
         bottom: TabBar(
-            indicatorColor: Colors.white,
-            controller: _tabController,
-            tabs: [
-              Tab(
-                icon: Icon(
-                  Icons.camera_alt_rounded,
-                ),
+          indicatorColor: Colors.white,
+          controller: _tabController,
+          tabs: [
+            Tab(
+              icon: Icon(
+                Icons.camera_alt_rounded,
               ),
-              Tab(
-                text: "CHATS",
-              ),
-              Tab(
-                text: "STATUS",
-              ),
-              Tab(
-                text: "CALLS",
-              )
-            ]),
+            ),
+            Tab(
+              text: "CHATS",
+            ),
+            Tab(
+              text: "STATUS",
+            ),
+            Tab(
+              text: "CALLS",
+            )
+          ],
+        ),
       ),
-      body: Center(),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          CameraScreen(),
+          ChatsScreen(),
+          StatusScreen(),
+          CallsScreen(),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green.shade500,
+        child: Icon(
+          Icons.message,
+          color: Colors.white,
+        ),
+        onPressed: () => print("CHATS"),
+      ),
     );
   }
 }
