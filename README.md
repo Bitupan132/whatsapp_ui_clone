@@ -8,4 +8,4 @@ This is a Flutter App. In this app I have created a clone of the WhatsApp User I
 ## TODO
 1. Add 'Login' feature.
 2. Add upload pictures feature.
-3. Make it a fully functional chat app.
+3. Make it a fully functional chat app with Push Notifications
